@@ -9,19 +9,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="./dist/css/main.min.css">
 </head>
 
 <body>
 
-    <header class="header">
+    <header id="home" class="header">
     <div class="header__top">
         <div class="logo"><i class="fa-solid fa-tree"></i>Forest</div>
         <nav class="nav nav-mobile">
             <a class="nav-mobile__item" href="index.html">Home</a>
-            <a class="nav-mobile__item" href="index.html">O nas</a>
-            <a class="nav-mobile__item" href="offer.html">Oferta</a>
+            <a class="nav-mobile__item" href="#about-us">O nas</a>
+            <a class="nav-mobile__item" href="#offer">Oferta</a>
             <a class="nav-mobile__item" href="contact.html">Kontakt</a>
         </nav>
         <nav class="nav nav-desktop">
@@ -51,7 +51,23 @@
 </header>
 
 
-    <p>Hej!</p>
+    <main>
+        <section id="about-us">
+            <h2 class="about-us__header">O nas</h2>
+            <div class="about-us__container">
+                <div class="about-us__pic"><img src="./dist/img/waters-3095682_1280.jpg"
+                        alt="Zdjęcie kamiennej wysepki z krzewem na wodzie."></div>
+                <div class="about-us__text">
+                    <h3 class="about-us__text--header">Niezapomniane przygody</h3>
+                    <p class="about-us__text--article">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+                        aspernatur temporibus consectetur maxime aperiam praesentium iste corrupti eveniet, possimus
+                        architecto esse iure recusandae quae ea? Reiciendis, eligendi! Consectetur, inventore
+                        necessitatibus.</p>
+                </div>
+            </div>
+        </section>
+        <section id="offer"></section>
+    </main>
 
     <footer>
     <p>footer</p>
