@@ -19,7 +19,7 @@
 
     <main>
         <section id="about-us">
-            <h2 class="about-us__header">O nas</h2>
+            <h2 class="about-us__header">O NAS</h2>
             <div class="about-us__container">
                 <div class="about-us__pic"><img src="./dist/img/waters-3095682_1280.jpg"
                         alt="Zdjęcie kamiennej wysepki z krzewem na wodzie."></div>
@@ -33,17 +33,34 @@
             </div>
         </section>
         <section class="banner">
-            <div class="banner__hero-img">
-                <div class="banner__hero-shadow"></div>
+            <div class="banner__hero-img hero-img">
+                <div class="banner__hero-shadow hero-shadow"></div>
                 <div class="banner__hero-text">
-                    <p class="hero-text__name">Forest Group</p>
-                    <h1 class="hero-text__header">Najpiękniejszy park w Twojej okolicy!</h1>
-                   
+                    <h2 class="banner__hero-text__header">Przygoda dla całej rodziny!</h2>
                 </div>
-               
+
             </div>
         </section>
-        <section id="offer"></section>
+        <section id="offer" class="offer">
+            <h2 class="offer__header">OFERTA</h2>
+            <p class="offer__text">Wybierz jedną z naszych wspaniałych ofert!</p>
+            <div class="offer__cardbox">
+                <div class="offer__card">
+                    <h3 class="offer__card-title">Demo</h3>
+                    <p class="offer__card-cost"><span>$0</span></p>
+                    <ul class="offer__card-list">
+                        <li class="offer__card-list-item"><i class="fa-solid fa-check"></i>opcja w pakiecie</li>
+                        <li class="offer__card-list-item"><i class="fa-solid fa-check"></i>opcja w pakiecie</li>
+                        <li class="offer__card-list-item"><i class="fa-solid fa-minus"></i>opcja poza pakietem</li>
+                        <li class="offer__card-list-item"><i class="fa-solid fa-minus"></i>opcja poza pakietem</li>
+                        <li class="offer__card-list-item"><i class="fa-solid fa-minus"></i>opcja poza pakietem</li>
+                    </ul>
+                    <button class="offer__card-button">Wybierz</button>
+                </div>
+            </div>
+        </section>
+
+
     </main>
 
     <!-- @include 'footer.kit' -->
