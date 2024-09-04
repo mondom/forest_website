@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Skontaktuj się z nami w sprawie naszej oferty.">
     <title>Kontakt | Forest</title>
+    <script src="https://kit.fontawesome.com/f234464579.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -17,6 +18,58 @@
 <body>
 
     <!-- @include 'header.kit' -->
+
+    <form class="form">
+
+        <h2 class="form__header">Skontaktuj się z nami</h2>
+
+        <div class="form__box">
+            <label class="form__box-label" for="name"><i class="fa-solid fa-user"></i>Imię:</label>
+            <input class="form__box-input" type="text" id="name">
+            <p class="form__box-bug">bug</p>
+        </div>
+
+        <div class="form__box">
+            <label class="form__box-label" for="mail"><i class="fa-solid fa-at"></i>Adres mailowy:</label>
+            <input class="form__box-input" type="email" id="mail">
+            <p class="form__box-bug">bug</p>
+        </div>
+
+        <div class="form__box">
+            <label class="form__box-label" for="phone"><i class="fa-solid fa-mobile-screen-button"></i>Numer telefonu:</label>
+            <input class="form__box-input" type="number" id="phone">
+            <p class="form__box-bug">bug</p>
+        </div>
+
+        <div class="form__box">
+            <label class="form__box-label" for="message"><i class="fa-regular fa-envelope"></i>Treść wiadomości:</label>
+            <textarea id="message" class="form__box-textarea"></textarea>
+            <p class="form__box-bug">bug</p>
+        </div>
+
+      
+        <div class="checkbox">
+            <input type="checkbox" id="regulations">
+            <label class="checkbox-text" for="regulations">Administratorem danych osobowych jest Forest Group Company Ltd. ul. Jasnogórska 2 Kraków. Dane wprowadzone w powyższym formularzu będą przetwarzane w celu odpowiedzi na zadane pytania, zgodnie z polityką prywatności.</label>
+            <p class="bug-text">Musisz zaakceptować przetwarzanie danych.</p>
+        </div>
+
+        <div class="buttons-box">
+            <button class="clear"><i class="fa-solid fa-xmark"></i>Wyczyść</button>
+            <button class="send"><i class="fa-solid fa-check"></i>Wyślij</button>
+        </div>
+
+        <div class="popup">
+            <div class="popup-wrapper">
+                <p class="confirm">Dziękujemy za przesłaną wiadomość! Nasz zespół skontaktuje się z Tobą wkrótce.
+                </p>
+                <button class="close-popup">Zamknij</button>
+            </div>
+        </div>
+
+
+
+    </form>
 
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.8980500889243!2d19.890269276075408!3d50.088195613381316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165a326d015c3b%3A0x47a12cd367a1f34e!2sRestauracja%20McDonald&#39;s!5e0!3m2!1spl!2spl!4v1725447743290!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
