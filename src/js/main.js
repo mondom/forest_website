@@ -15,8 +15,8 @@ const mailBugText = document.querySelector(".mail-bug-text")
 const phoneBugText = document.querySelector(".phone-bug-text")
 const messageBugText = document.querySelector(".message-bug-text")
 const checkboxBugText = document.querySelector(".checkbox-info__bug-text")
-const formButtonClear = document.querySelector('.button__clear')
-const formButtonSend = document.querySelector('.button__send')
+const formButtonClear = document.querySelector(".button__clear")
+const formButtonSend = document.querySelector(".button__send")
 
 // scrollspy
 
@@ -115,31 +115,31 @@ function addUserComments() {
 			userName: "Marek",
 			comment: "Najlepsze wakacje w moim życiu...",
 			gender: "man",
-			pic: "../dist/img/marek-pic.jpg",
+			pic: "./dist/img/marek-pic.jpg",
 		},
 		{
 			userName: "Jola",
 			comment: "Na pewno tu jeszcze wrócimy!",
 			gender: "woman",
-			pic: "../dist/img/jola-pic.jpg",
+			pic: "./dist/img/jola-pic.jpg",
 		},
 		{
 			userName: "Anna",
 			comment: "Wspaniały wypoczynek na łonie natury",
 			gender: "woman",
-			pic: "../dist/img/anna-pic.jpg",
+			pic: "./dist/img/anna-pic.jpg",
 		},
 		{
 			userName: "Henryk",
 			comment: "Miła odmiana od zatłoczonych kurortów.",
 			gender: "man",
-			pic: "../dist/img/henryk-pic.jpg",
+			pic: "./dist/img/henryk-pic.jpg",
 		},
 		{
 			userName: "Kamil",
 			comment: "Przygoda życia!!!",
 			gender: "man",
-			pic: "../dist/img/kamil-pic.jpg",
+			pic: "./dist/img/kamil-pic.jpg",
 		},
 		{
 			userName: "Edyta",
@@ -155,9 +155,9 @@ function addUserComments() {
 
 		if (users[index].pic === "") {
 			if (users[index].gender === "woman") {
-				userPic.src = "../dist/img/user-woman-graphic.jpg"
+				userPic.src = "./dist/img/user-woman-graphic.jpg"
 			} else if (users[index].gender === "man") {
-				userPic.src = "../dist/img/user-man-graphic.jpg"
+				userPic.src = "./dist/img/user-man-graphic.jpg"
 			}
 		} else {
 			userPic.src = users[index].pic
@@ -187,26 +187,25 @@ navMobileItems.forEach(item => {
 // page transition
 
 window.onload = () => {
-	const transitionEl = document.querySelector('.transition')
-	const linkItemsNav = document.querySelectorAll('.link-item-nav')
+	const transitionEl = document.querySelector(".transition")
+	const linkItemsNav = document.querySelectorAll(".link-item-nav")
 	setTimeout(() => {
-		transitionEl.classList.remove('is-active')
-	}, 300);
+		transitionEl.classList.remove("is-active")
+	}, 300)
 
-	for(let i=0; i < linkItemsNav.length;i++){
+	for (let i = 0; i < linkItemsNav.length; i++) {
 		const item = linkItemsNav[i]
 
-		item.addEventListener('click', e => {
-			e.preventDefault();
+		item.addEventListener("click", e => {
+			e.preventDefault()
 
-			let target = e.currentTarget.href;
+			let target = e.currentTarget.href
 
-
-			transitionEl.classList.add('is-active')
+			transitionEl.classList.add("is-active")
 
 			setTimeout(() => {
-				window.location.href = target;
-			}, 300);
+				window.location.href = target
+			}, 300)
 		})
 	}
 }
@@ -229,23 +228,20 @@ window.onload = () => {
 // 	}
 // }
 
-
-
 // form
 
-const clearForm = (e) => {
+const clearForm = e => {
 	e.preventDefault()
 	const inputs = [inputMail, inputName, inputPhone, textArea]
 	inputs.forEach(input => {
-		input.value = ''
+		input.value = ""
 	})
 
 	checkbox.checked = false
 }
 
-
 window.addEventListener("scroll", updateActiveLink)
 window.addEventListener("load", updateContactPageLink)
 burgerBtn.addEventListener("click", handleNav)
 navMobileCloseBtn.addEventListener("click", handleNav)
-formButtonClear.addEventListener('click', clearForm)
+formButtonClear.addEventListener("click", clearForm)
