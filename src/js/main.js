@@ -184,7 +184,7 @@ navMobileItems.forEach(item => {
 	})
 })
 
-// page transition delay
+// page transition delay on mobile nav
 
 window.onload = () => {
 	for (let i = 0; i < navMobileItems.length; i++) {
