@@ -184,24 +184,16 @@ navMobileItems.forEach(item => {
 	})
 })
 
-// page transition
+// page transition delay
 
 window.onload = () => {
-	const transitionEl = document.querySelector(".transition")
-	const linkItemsNav = document.querySelectorAll(".link-item-nav")
-	setTimeout(() => {
-		transitionEl.classList.remove("is-active")
-	}, 300)
-
-	for (let i = 0; i < linkItemsNav.length; i++) {
-		const item = linkItemsNav[i]
+	for (let i = 0; i < navMobileItems.length; i++) {
+		const item = navMobileItems[i]
 
 		item.addEventListener("click", e => {
 			e.preventDefault()
 
 			let target = e.currentTarget.href
-
-			transitionEl.classList.add("is-active")
 
 			setTimeout(() => {
 				window.location.href = target
@@ -209,24 +201,6 @@ window.onload = () => {
 		})
 	}
 }
-
-// const forwardPage = e => {
-// 	e.preventDefault()
-// 	const href = e.target.getAttribute("href")
-
-// 	if (href === "index.html") {
-// 		window.location.href = href
-// 		window.scrollTo({ top: 0, behavior: "smooth" })
-// 	} else if (href.startsWith("index.html#")) {
-// 		const sectionId = href.split("#")[1]
-// 		const targetSection = document.getElementById(sectionId)
-// 		if (targetSection) {
-// 			targetSection.scrollIntoView({ behavior: "smooth" })
-// 		}
-// 	} else if (href === "contact.html") {
-// 		window.location.href = href
-// 	}
-// }
 
 // form
 
