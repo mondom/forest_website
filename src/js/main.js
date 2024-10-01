@@ -1,7 +1,10 @@
 const burgerBtn = document.querySelector(".header__top-burger-btn")
 const navMobile = document.querySelector(".nav-mobile")
 const navMobileCloseBtn = document.querySelector(".nav-mobile__btn-close")
+
 const navDesktopLinks = document.querySelectorAll(".nav-desktop__item")
+const scrollSpySections = document.querySelectorAll(".section")
+
 const navMobileItems = document.querySelectorAll(".nav-mobile__item")
 let activeSectionId = ""
 const inputName = document.querySelector(".input-name")
@@ -20,91 +23,38 @@ const formButtonSend = document.querySelector(".button__send")
 
 // scrollspy
 
-const removeActiveClass = () => {
-	navDesktopLinks.forEach(navLink => {
-		navLink.classList.remove("active-nav-link")
-	})
-}
+const handleScrollSpy = () => {
+	if (document.body.classList.contains("main-page")) {
+		const sections = []
 
-const updateActiveLink = () => {
-	let newActiveSectionId = ""
+		scrollSpySections.forEach(section => {
+			// console.log(window.scrollY)
+			// // wartość scrolla
+			// console.log(section.offsetTop)
+			// // odległość danej sekcji od górnej krawędzi przeglądarki
+			// console.log(section.offsetHeight);
+			// // wysokość każdej sekcji
 
-	if (
-		window.scrollY === 0 ||
-		window.innerHeight + window.scrollY >= document.documentElement.scrollHeight
-	) {
-		if (!window.location.pathname.endsWith("contact.html")) {
-			removeActiveClass()
-			activeSectionId = "" // Resetuj aktywną sekcję
-		}
-		return
-	}
+			if (window.scrollY <= section.offsetTop + section.offsetHeight) {
+				sections.push(section)
 
-	document.querySelectorAll(".section").forEach(section => {
-		const rect = section.getBoundingClientRect()
-		const sectionTop = rect.top + window.scrollY
-		const sectionBottom = sectionTop + rect.height
+				const activeSection = document.querySelector(
+					`[href*="${sections[0].id}"]`
+				)
 
-		let thresholdTop
-		let thresholdBottom
+				navDesktopLinks.forEach(link => {
+					link.classList.remove("active-nav-link")
+				})
 
-		const footer = document.querySelector("footer")
-		const footerHeight = footer ? footer.offsetHeight : 0
-
-		if (section.id === "about-us") {
-			thresholdTop = window.innerHeight / 3
-			thresholdBottom = (window.innerHeight * 2) / 3
-		} else if (section.id === "offer") {
-			thresholdTop = window.innerHeight / 2
-			thresholdBottom = window.innerHeight - footerHeight
-		} else {
-			thresholdTop = window.innerHeight / 2
-			thresholdBottom = window.innerHeight
-		}
-
-		const isVisible =
-			sectionTop <= window.scrollY + thresholdBottom &&
-			sectionBottom >= window.scrollY + thresholdTop
-
-		if (isVisible) {
-			newActiveSectionId = section.id
-		}
-	})
-
-	if (newActiveSectionId && newActiveSectionId !== activeSectionId) {
-		removeActiveClass()
-
-		const newActiveLink = document.querySelector(
-			`.nav-desktop__item[href='index.html#${newActiveSectionId}']`
-		)
-
-		if (newActiveLink) {
-			newActiveLink.classList.add("active-nav-link")
-		}
-
-		activeSectionId = newActiveSectionId
+				
+				activeSection.classList.add("active-nav-link")
+			}
+		})
 	}
 }
+console.log(navDesktopLinks)
 
 // dynamic addition of user data to the comments section
-
-const updateContactPageLink = () => {
-	const isOnContactPage = window.location.pathname.endsWith("contact.html")
-
-	if (isOnContactPage) {
-		removeActiveClass()
-		const contactLink = document.querySelector(
-			`.nav-desktop__item[href='contact.html']`
-		)
-
-		if (contactLink) {
-			contactLink.classList.add("active-nav-link")
-		}
-		activeSectionId = ""
-	} else {
-		updateActiveLink()
-	}
-}
 
 function addUserComments() {
 	const userNames = document.querySelectorAll(".user-name")
@@ -180,7 +130,6 @@ const handleNav = () => {
 navMobileItems.forEach(item => {
 	item.addEventListener("click", e => {
 		handleNav()
-		// forwardPage(e)
 	})
 })
 
@@ -214,8 +163,7 @@ const clearForm = e => {
 	checkbox.checked = false
 }
 
-window.addEventListener("scroll", updateActiveLink)
-window.addEventListener("load", updateContactPageLink)
+window.addEventListener("scroll", handleScrollSpy)
 burgerBtn.addEventListener("click", handleNav)
 navMobileCloseBtn.addEventListener("click", handleNav)
-formButtonClear.addEventListener("click", clearForm)
+// formButtonClear.addEventListener("click", clearForm)
