@@ -39,7 +39,7 @@ const handleScrollSpy = () => {
 				sections.push(section)
 
 				const activeSection = document.querySelector(
-					`[href*="${sections[0].id}"]`
+					`.nav-desktop__item[href*="${sections[0].id}"]`
 				)
 
 				navDesktopLinks.forEach(link => {
@@ -48,6 +48,7 @@ const handleScrollSpy = () => {
 
 				
 				activeSection.classList.add("active-nav-link")
+				console.log(activeSection);
 			}
 		})
 	}
