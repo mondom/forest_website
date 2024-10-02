@@ -28,14 +28,7 @@ const handleScrollSpy = () => {
 		const sections = []
 
 		scrollSpySections.forEach(section => {
-			// console.log(window.scrollY)
-			// // wartość scrolla
-			// console.log(section.offsetTop)
-			// // odległość danej sekcji od górnej krawędzi przeglądarki
-			// console.log(section.offsetHeight);
-			// // wysokość każdej sekcji
-
-			if (window.scrollY <= section.offsetTop + section.offsetHeight) {
+			if (window.scrollY <= section.offsetTop + section.offsetHeight - 64) {
 				sections.push(section)
 
 				const activeSection = document.querySelector(
@@ -46,14 +39,18 @@ const handleScrollSpy = () => {
 					link.classList.remove("active-nav-link")
 				})
 
-				
 				activeSection.classList.add("active-nav-link")
-				console.log(activeSection);
+				console.log(activeSection)
 			}
 		})
+	} else if (document.body.classList.contains("contact-page")) {
+		navDesktopLinks.forEach(link => {
+			link.classList.remove("active-nav-link")
+		})
+		const lastIndex = navDesktopLinks.length - 1
+		navDesktopLinks[lastIndex].classList.add("active-nav-link")
 	}
 }
-console.log(navDesktopLinks)
 
 // dynamic addition of user data to the comments section
 
@@ -165,6 +162,7 @@ const clearForm = e => {
 }
 
 window.addEventListener("scroll", handleScrollSpy)
+window.addEventListener("DOMContentLoaded", handleScrollSpy)
 burgerBtn.addEventListener("click", handleNav)
 navMobileCloseBtn.addEventListener("click", handleNav)
 // formButtonClear.addEventListener("click", clearForm)
