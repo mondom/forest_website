@@ -40,7 +40,6 @@ const handleScrollSpy = () => {
 				})
 
 				activeSection.classList.add("active-nav-link")
-				console.log(activeSection)
 			}
 		})
 	} else if (document.body.classList.contains("contact-page")) {
@@ -158,11 +157,46 @@ const clearForm = e => {
 		input.value = ""
 	})
 
+	const bugsText = [
+		mailBugText,
+		nameBugText,
+		phoneBugText,
+		messageBugText,
+		checkboxBugText,
+	]
+
+	bugsText.forEach(bug => {
+		bug.classList.remove("error-text")
+	})
+
 	checkbox.checked = false
+}
+
+const showError = (input, msg) => {
+	const bugText = input.nextElementSibling
+	bugText.classList.add("error-text")
+	bugText.textContent = msg
+}
+
+const checkLength = (input, num) => {
+	const info = input.previousElementSibling.textContent.slice(0, -1)
+	if (input.value.length === 0) {
+		showError(input, `Musisz wprowadzić ${info.toLowerCase()}`)
+	} else if (input.value.length < num) {
+		showError(input, `${info} składa się z conajmniej ${num} znaków.`)
+	}
+}
+
+const sendForm = e => {
+	e.preventDefault()
+	checkLength(inputName, 3)
+	checkLength(inputPhone, 9)
+	checkLength(textArea, 10)
 }
 
 window.addEventListener("scroll", handleScrollSpy)
 window.addEventListener("DOMContentLoaded", handleScrollSpy)
 burgerBtn.addEventListener("click", handleNav)
 navMobileCloseBtn.addEventListener("click", handleNav)
-// formButtonClear.addEventListener("click", clearForm)
+formButtonClear.addEventListener("click", clearForm)
+formButtonSend.addEventListener("click", sendForm)

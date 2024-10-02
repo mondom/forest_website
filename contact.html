@@ -69,27 +69,29 @@
                 <div class="form__box">
                     <label class="form__box-label" for="name"><i class="fa-solid fa-user"></i>Imię:</label>
                     <input class="form__box-input input-name" type="text" id="name">
-                    <p class="form__box-bug name-bug-text"></p>
+                    <p class="form__box-bug name-bug-text">error</p>
                 </div>
 
                 <div class="form__box">
                     <label class="form__box-label" for="mail"><i class="fa-solid fa-at"></i>Adres mailowy:</label>
                     <input class="form__box-input input-mail" type="email" id="mail">
-                    <p class="form__box-bug mail-bug-text"></p>
+                    <p class="form__box-bug mail-bug-text">error</p>
                 </div>
 
                 <div class="form__box">
                     <label class="form__box-label" for="phone"><i class="fa-solid fa-mobile-screen-button"></i>Numer
                         telefonu:</label>
-                    <input class="form__box-input input-phone" type="number" id="phone">
-                    <p class="form__box-bug phone-bug-text"></p>
+                    <input class="form__box-input input-phone" type="tel" id="phone" name="phone"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+
+                    <p class="form__box-bug phone-bug-text">error</p>
                 </div>
 
                 <div class="form__box">
                     <label class="form__box-label" for="message"><i class="fa-regular fa-envelope"></i>Treść
                         wiadomości:</label>
                     <textarea id="message" class="form__box-textarea" maxlength="250"></textarea>
-                    <p class="form__box-bug message-bug-text"></p>
+                    <p class="form__box-bug message-bug-text">error</p>
                 </div>
 
 
@@ -100,7 +102,7 @@
                         Company
                         Ltd. ul. Jasnogórska 2 Kraków. Dane wprowadzone w powyższym formularzu będą przetwarzane w celu
                         odpowiedzi na zadane pytania, zgodnie z polityką prywatności.</label>
-                    <p class="checkbox-info__bug-text"></p>
+                    <p class="form__box-bug checkbox-info__bug-text">error</p>
                 </div>
 
                 <div class="buttons-box">
@@ -145,8 +147,7 @@
 
             <iframe class="contact-map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.8980500889243!2d19.890269276075408!3d50.088195613381316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165a326d015c3b%3A0x47a12cd367a1f34e!2sRestauracja%20McDonald&#39;s!5e0!3m2!1spl!2spl!4v1725447743290!5m2!1spl!2spl"
-                allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         </div>
 
