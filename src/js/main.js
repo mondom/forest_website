@@ -48,6 +48,13 @@ const handleScrollSpy = () => {
 		})
 		const lastIndex = navDesktopLinks.length - 1
 		navDesktopLinks[lastIndex].classList.add("active-nav-link")
+	} else if (
+		document.body.classList.contains("offer-page") ||
+		document.body.classList.contains("error-page")
+	) {
+		navDesktopLinks.forEach(link => {
+			link.classList.remove("active-nav-link")
+		})
 	}
 }
 
