@@ -178,20 +178,48 @@ const showError = (input, msg) => {
 	bugText.textContent = msg
 }
 
+const clearError = input => {
+	const bugText = input.nextElementSibling
+	bugText.classList.remove("error-text")
+}
+
 const checkLength = (input, num) => {
 	const info = input.previousElementSibling.textContent.slice(0, -1)
 	if (input.value.length === 0) {
 		showError(input, `Musisz wprowadzić ${info.toLowerCase()}`)
 	} else if (input.value.length < num) {
 		showError(input, `${info} składa się z conajmniej ${num} znaków.`)
+	} else {
+		clearError(input)
+	}
+}
+
+const checkPhone = input => {
+	const regex = /(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)/
+
+	if (regex.test(input.value)) {
+		clearError(inputPhone)
+	} else {
+		showError(inputPhone, `Numer telefonu jest niepoprawny!`)
+	}
+}
+const checkMail = input => {
+	const regex =
+		/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+	if (regex.test(input.value)) {
+		clearError(inputMail)
+	} else {
+		showError(inputMail, `Podany mail jest niepoprawny!`)
 	}
 }
 
 const sendForm = e => {
 	e.preventDefault()
 	checkLength(inputName, 3)
-	checkLength(inputPhone, 9)
 	checkLength(textArea, 10)
+	checkPhone(inputPhone)
+	checkMail(inputMail)
 }
 
 window.addEventListener("scroll", handleScrollSpy)
