@@ -20,6 +20,9 @@ const messageBugText = document.querySelector(".message-bug-text")
 const checkboxBugText = document.querySelector(".checkbox-info__bug-text")
 const formButtonClear = document.querySelector(".button__clear")
 const formButtonSend = document.querySelector(".button__send")
+const popup = document.querySelector(".form__popup")
+const closePopupBtn = document.querySelector(".form__popup-close-btn")
+const popupFormWarp = document.querySelector(".form__popup-wrapper")
 
 // scrollspy
 
@@ -207,7 +210,7 @@ const checkPhone = input => {
 	if (regex.test(input.value)) {
 		clearError(inputPhone)
 	} else {
-		showError(inputPhone, `Numer telefonu jest niepoprawny!`)
+		showError(inputPhone, `Numer telefonu jest niepoprawny`)
 	}
 }
 const checkMail = input => {
@@ -217,7 +220,30 @@ const checkMail = input => {
 	if (regex.test(input.value)) {
 		clearError(inputMail)
 	} else {
-		showError(inputMail, `Podany mail jest niepoprawny!`)
+		showError(inputMail, `Podany mail jest niepoprawny`)
+	}
+}
+
+const checkCheckbox = () => {
+	if (checkbox.checked === false) {
+		checkboxBugText.textContent = "Zaakceptuj politykę prywatności"
+		checkboxBugText.classList.add("error-text")
+	} else {
+		checkboxBugText.classList.remove("error-text")
+	}
+}
+
+const checkAllForm = () => {
+	let errors = 0
+	const errorsText = document.querySelectorAll(".form__box-bug")
+	errorsText.forEach(errorText => {
+		if (errorText.classList.contains("error-text")) {
+			errors++
+		}
+	})
+
+	if (errors === 0) {
+		popup.classList.add("active-popup")
 	}
 }
 
@@ -227,6 +253,15 @@ const sendForm = e => {
 	checkLength(textArea, 10)
 	checkPhone(inputPhone)
 	checkMail(inputMail)
+	checkCheckbox()
+	checkAllForm()
+}
+
+const closePopup = e => {
+	e.preventDefault()
+	popupFormWarp.classList.add("close-wrapper")
+	popup.classList.remove("active-popup")
+	clearForm(e)
 }
 
 window.addEventListener("scroll", handleScrollSpy)
@@ -235,3 +270,4 @@ burgerBtn.addEventListener("click", handleNav)
 navMobileCloseBtn.addEventListener("click", handleNav)
 formButtonClear.addEventListener("click", clearForm)
 formButtonSend.addEventListener("click", sendForm)
+closePopupBtn.addEventListener("click", closePopup)
