@@ -195,9 +195,12 @@ const clearError = input => {
 
 const checkLength = (input, num) => {
 	const info = input.previousElementSibling.textContent.slice(0, -1)
-	if (input.value.length === 0) {
+
+	const userData = input.value.trim()
+
+	if (userData.length === 0) {
 		showError(input, `Musisz wprowadzić ${info.toLowerCase()}`)
-	} else if (input.value.length < num) {
+	} else if (userData.length < num) {
 		showError(input, `${info} składa się z conajmniej ${num} znaków.`)
 	} else {
 		clearError(input)
